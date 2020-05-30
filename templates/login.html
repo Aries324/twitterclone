@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block main %}
+    <div>
+        <form name="Login" action="login/" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+        <div>
+            <label for="username">Username</label>
+            <div>
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+        <div >
+            <label  for="password">Password</label>
+            <div >
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div >
+            <div>
+                <button type="submit" >Submit</button>
+            </div>
+<!--            https://www.fir3net.com/Web-Development/Django/django.html-->
+        </div>
+        </form>
+    </div>
+{% endblock %}

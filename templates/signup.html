@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+{% block content %}
+    <h2>Sign Up</h2>
+    <div>
+        <form name="Signup" action="/signup/" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+        <div>
+            <label for="username">Please enter your username</label>
+            <div>
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </div>
+        </div>
+
+        <div >
+            <label  for="password">Please enter your password</label>
+            <div >
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        <div>
+            <div>
+                <button type="submit" >Submit</button>
+            </div>
+<!--            https://www.fir3net.com/Web-Development/Django/django.html-->
+        </div>
+        </form>
+    </div>
+{% endblock %}

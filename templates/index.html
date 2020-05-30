@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+
+    <{% block title %}Home Page{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3>@{{user.username }}, welcome! </h3>
+        <h4>{{auth_value.username}}</h4>
+        <div>Tweets: {{tweets.count}}</div>
+        <div> Followers: {{user.following.all.count}}</div>
+<button><a href='/follow/{{user.id}}'>Follow Me!! </a></button>
+        <a href = "{% url 'logged_out'%}"><button>Logout</button></a>
+    {% else %}
+        <h3>You are not logged in.  Please click <a href="{% url 'login'%}">here</a> to log in. </h3>
+        <h4>Don't have an account. Click <a href="{%url 'signup'%}">here</a> to register for an account.</h4>
+    {% endif %}
+<!--https://learndjango.com/tutorials/django-login-and-logout-tutorial-->
+
+{% endblock %}
