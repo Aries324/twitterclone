@@ -5,11 +5,19 @@
     <{% block title %}Home Page{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
+        <div>
+            <button><a href="/">Home</a></button>
+            <button><a href="tweetadd/">Tweet</a></button>
+            <button><a href="notifications/">Notifications</a> </button>
+        </div>
         <h3>@{{user.username }}, welcome! </h3>
         <h4>{{auth_value.username}}</h4>
-        <div>Tweets: {{tweets.count}}</div>
+        <div>Tweets: {{tweet.count}}</div>
         <div> Followers: {{user.following.all.count}}</div>
-<button><a href='/follow/{{user.id}}'>Follow Me!! </a></button>
+        <div>{{body.message}}</div>
+        <button><a href='follow/{{user.id}}'>Follow Me!! </a></button>
+        <button><a href='unfollow/{{user.id}}'>Unfollow Me!! </a></button>
+
         <a href = "{% url 'logged_out'%}"><button>Logout</button></a>
     {% else %}
         <h3>You are not logged in.  Please click <a href="{% url 'login'%}">here</a> to log in. </h3>
