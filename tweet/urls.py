@@ -3,5 +3,7 @@ from tweet import views
 
 urlpatterns = [
     path('tweetadd/', views.tweetadd),
-    path('tweetdetail/<int:pk>/', views.tweet_detail)
+    path('alttweetadd/', views.TweetAddFormView.as_view()),
+    path('tweetdetail/<int:pk>/', views.tweet_detail),
+    path('alttweetdetail/<int:pk>/', views.TweetDetail.as_view())
 ]
